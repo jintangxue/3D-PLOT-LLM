@@ -50,7 +50,7 @@ pip install deepspeed ninja flash-attn
 # traditional caption metrics (SBERT / SimCSE) can live in a separate environment with a recent sentence-transformers
 ```
 
-All scripts read their paths from `env.sh`, which also puts the repository on `PYTHONPATH`. Either export the variables in your shell or edit the defaults in that file:
+All scripts read their paths from `env.sh`, which also puts the repository on `PYTHONPATH`. Either export the variables in your shell or edit the defaults in that file. The prefix `bcp` in option names, config keys and the pack directory variable stands for Balanced Connected Parts, the code name of the region partition module:
 
 | Variable | Meaning | Default |
 |---|---|---|

@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.egg-info/
+/build/
+/dist/
+/outputs/
+/logs/
+/data/
+/checkpoints/
+/.triton_cache/
+*.bin
+*.safetensors
+*.pack.npz

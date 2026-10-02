@@ -1,0 +1,33 @@
+GPT-4o caption-quality judge prompt (verbatim, matches App. D.g of the paper):
+
+Model: gpt-4o-2024-08-06
+Temperature: 0.0
+Max tokens: 256
+
+System / user prompt template:
+
+  Evaluate a model-generated caption against a human-generated caption (ground truth) for a 3D model. Identify the aspects mentioned in the human caption and calculate the percentage of these aspects correctly mentioned or partially matched in the model caption. Score from 0 to 100, where each aspect contributes equally to the score. Consider similar concepts for partial score. Provide your score (0-100) and a short justification (less than 15 words) in the format of 'score#reason'.
+
+Per query input variables:
+
+  human_caption := the GT caption from heldout_s2c_196.json (entry.conversations[1].value)
+  model_caption := the model's predicted caption for the same query
+
+A typical user message is:
+
+  Human caption: <human_caption>
+  Model caption: <model_caption>
+
+The model returns a single string of the form "<int>#<short reason>". Parse
+the integer prefix as the per-query score; aggregate as a mean over the 196
+S2C held-out queries (5-run mean per checkpoint per the paper protocol).
+
+Notes:
+- We use gpt-4o-2024-08-06 because gpt-4-0613 (used by the original
+  PointLLM evaluation) has been deprecated. All baselines are
+  re-evaluated with the same judge for fairness; cited GPT-4o
+  numbers from prior papers that used different judges or prompts
+  are reported as "--" in our tables.
+- Running this judge requires an OpenAI API key. The OpenAI client
+  call is intentionally not included to avoid any leakage of an
+  API key in this anonymized package.

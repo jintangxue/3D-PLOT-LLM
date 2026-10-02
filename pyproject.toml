@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plotllm"
+version = "1.0.0"
+description = "3D-PLOT-LLM: Part-Level Object Tokens for 3D Large Language Models (NeurIPS 2026). Built on PointLLM."
+readme = "README.md"
+license = {text = "CC BY-NC-SA 4.0"}
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "accelerate", "einops", "gradio", "numpy",
+    "requests", "sentencepiece", "tokenizers==0.12.1",
+    "torch>=2.0", "torchvision",
+    "shortuuid",
+    "deepspeed", "peft",
+    "transformers @ git+https://github.com/huggingface/transformers.git@cae78c46",
+    "openai", "tqdm",
+    "easydict", "timm==0.4.12", "ftfy==6.0.1", "regex", "open3d==0.16.0", "h5py", "termcolor",
+    "plyfile", "nltk", "rouge", "scikit-learn", "py-rouge"
+]
+
+[project.urls]
+Homepage = "https://github.com/jintangxue/3D-PLOT-LLM"
+Paper = "https://arxiv.org/abs/2606.19828"
+
+[tool.setuptools.packages.find]
+include = ["pointllm*"]
+
+[tool.setuptools.package-data]
+pointllm = ["model/pointbert/*.yaml", "data/modelnet_config/*", "data/data_generation/*"]

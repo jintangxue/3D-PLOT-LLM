@@ -146,11 +146,11 @@ bash scripts/train_stage2.sh
 ## Citation
 
 ```bibtex
-@article{xue2026plotllm,
-  title   = {3D-PLOT-LLM: Part-Level Object Tokens for 3D Large Language Models},
-  author  = {Xue, Jintang and Wang, Xinyu and Wu, Yixing and Chen, Jingwen and Kuo, C.-C. Jay},
-  journal = {arXiv preprint arXiv:2606.19828},
-  year    = {2026}
+@article{xue20263d,
+  title={3D-PLOT-LLM: Part-Level Object Tokens for 3D Large Language Models},
+  author={Xue, Jintang and Wang, Xinyu and Wu, Yixing and Chen, Jingwen and Kuo, C-C Jay},
+  journal={arXiv preprint arXiv:2606.19828},
+  year={2026}
 }
 ```
 

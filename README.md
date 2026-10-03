@@ -140,7 +140,7 @@ bash scripts/train_stage2.sh
 
 ## Reproducibility notes
 
-- Greedy caption-to-slots is deterministic for a given GPU model and software stack. With the environment above, the released checkpoint reproduces the paper's 392 C2S predictions exactly on an A100; on other GPU families a few queries near decision ties flip (about 14 of 392 on Ampere GA102 cards), which moves Jaccard by roughly 0.004.
+- Greedy caption-to-slots is deterministic for a given GPU model and software stack. With the environment above, the released checkpoint reproduces the paper's 392 C2S predictions exactly on an A100. On other GPUs (we tested A40 and RTX A6000) floating-point differences flip the greedy output of 13 to 14 of the 392 queries, which moves Jaccard by about 0.004.
 - Caption metrics use unseeded sampling and are reported as means over runs. Run-to-run standard deviation is about 0.5 SBERT on Objaverse and 1.0 on PartVerse S2C; compare means over several runs rather than single runs.
 
 ## Citation

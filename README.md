@@ -10,11 +10,15 @@ Official implementation of **3D-PLOT-LLM** (NeurIPS 2026), by Jintang Xue, Xinyu
 
 3D-PLOT-LLM makes the parts of a 3D object addressable from the language model's vocabulary, without any segmentation or box decoder. A frozen Point-BERT encoder's 512 patch tokens are partitioned into K=16 spatially coherent regions by a deterministic, training-free procedure; each region is prefixed with a learnable marker and a reserved vocabulary token `<part_k>`, and a lightweight Marker-Space Refinement (MSR) module conditions the markers on per-region spatial statistics and region adjacency. The LLM can then both read and emit part references. Fewer than one million parameters are added to PointLLM.
 
+<p align="center"><img src="assets/overview.png" width="92%" alt="3D-PLOT-LLM: regions of a point cloud become vocabulary tokens that the LLM can read and emit"></p>
+
 ## Highlights
 
 - Part addressing through vocabulary tokens, with no detector and no mask decoder.
 - **PartVerse-QA**: 77,607 training pairs and 588 held-out queries (392 caption-to-slots, 196 slots-to-caption) built from PartVerse part annotations aligned to the PointLLM 8192-point Objaverse clouds.
 - Whole-object captioning on Objaverse stays on par with PointLLM while part grounding becomes possible.
+
+<p align="center"><img src="assets/pipeline.png" width="92%" alt="Pipeline: frozen point encoder, deterministic region partition, markers refined by MSR, projector, LLM"></p>
 
 ## News
 
